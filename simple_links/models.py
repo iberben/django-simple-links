@@ -1,5 +1,10 @@
+from django import get_version
 from django.db import models
-from django.utils.translation import ugettext_lazy as _
+
+if get_version() > '3.0':
+    from django.utils.translation import gettext_lazy as _
+else:
+    from django.utils.translation import ugettext_lazy as _
 
 from simple_links import managers
 
